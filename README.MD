@@ -22,7 +22,7 @@ Beispiel Nummern:
 Benötigt wird immer die Seriennummer des Ausweises mit der Prüfziffer am Ende bzw. mit dem Länderkürzel beim Reisepässen.
 Beim Perso ist diese Nummer auf der Rückseite in der ersten Zeile nach IDD zu finden. Die länge der Seriennummer inkl. Prüfziffer ist 10 Zeichen. Beim Reisepass ist sie auch ganz unten in der zweiten Zeile zu finden. Die länge der Seriennummer inkl. Prüfziffer und Länderkennung ist min. 11 Zeichen lang max. 13 Zeichen (manche Länder haben nur ein Buchstaben andere drei).
 
-#### JavaScript
+### JavaScript
 Wenn die Ausweisnummer durch ein Formular oder ähnliches schon vorhanden ist:
 ```javascript
 var check = new AusweisCheck(ausweisnummer).checkPerso;
@@ -59,7 +59,7 @@ array (
 );
 ```
 
-#### PHP
+### PHP
 DIe PHP Version ist in großen Teilen identisch wie die Javascript Version aufgebaut.
 Wenn die Ausweisnummer schon bekannt ist:
 ```php
