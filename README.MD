@@ -2,11 +2,12 @@
 
 AusweisCheck ist eine Library für PHP und JavaScript um mit wenige Zeilen die Echtheit eines Ausweises zu überprüfen. Es lassen sich Deutsche Personalausweise überprüfen, oder alternativ Internationale Reisepässe inklusive der Nationalität.
 
-*ausweischeck.min.js* ist nur **2 KB groß** und braucht zur überprüfung nur **eine einzige Zeile code**!
+*ausweischeck.min.js* ist nur **2 KB groß** und braucht zur überprüfung nur **eine einzige Code Zeile**!
 
 
 ##  Beispiele
-Für alle Sprachen gibt es im Ordner *examples* Beispiele für die Nutzung. PHP ist nur auf eigenem Server ausführbar, JavaScript auch direkt hier.
+Für alle Sprachen gibt es im Ordner *examples* Beispiele für die Nutzung. PHP ist nur auf einem eigenem Server ausführbar, Die JavaScript kann hier getestet werden: 
+[https://cdn.rawgit.com/derDeno/AusweisCheck/1cdb9697/example/index-js.html](https://cdn.rawgit.com/derDeno/AusweisCheck/1cdb9697/example/index-js.html)
 
 
 
