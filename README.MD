@@ -9,9 +9,16 @@ AusweisCheck ist eine Library für PHP und JavaScript um mit wenige Zeilen die E
 Für alle Sprachen gibt es im Ordner *examples* Beispiele für die Nutzung. PHP ist nur auf einem eigenem Server ausführbar, Die JavaScript kann hier getestet werden: 
 [https://cdn.rawgit.com/derDeno/AusweisCheck/1cdb9697/example/index-js.html](https://cdn.rawgit.com/derDeno/AusweisCheck/1cdb9697/example/index-js.html)
 
+Beispiel Nummern:
+**Personalausweis:** T220001293
+**Reisepass:** 1220001297
+
 
 
 ## Nutzung
+
+Benötigt wird immer die Seriennummer des Ausweises mit der Prüfziffer am Ende bzw. mit dem Länderkürzel beim Reisepässen.
+Beim Perso ist diese Nummer auf der Rückseite in der ersten Zeile nach IDD zu finden. Die länge der Seriennummer inkl. Prüfziffer ist 10 Zeichen. Beim Reisepass ist sie auch ganz unten in der zweiten Zeile zu finden. Die länge der Seriennummer inkl. Prüfziffer und Länderkennung ist min. 11 Zeichen lang max. 13 Zeichen (manche Länder haben nur ein Buchstaben andere drei).
 
 #### JavaScript
 Wenn die Ausweisnummer durch ein Formular oder ähnliches schon vorhanden ist:
@@ -95,4 +102,7 @@ Bei Fragen oder Anregungen einfach ein neues Issue öffnen!
 
 
 ## Changelog
-Version 0.0.1: Inital Release
+**Version 0.0.1:**
+```
+Inital Release
+```
