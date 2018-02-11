@@ -65,7 +65,7 @@ wobei `$ausweisnummer` die zu überprüfende Ausweisnummer ist.
 Als Antwort liefern beide Funktionen 3 Möglichkeiten:
 
 **False**
-Die Variable `check` aus unserem Beispiel hat den Wert `false`. Das bedeutet das die Ausweisnummer nicht vollständig ist / zu kurz ist.
+Die Variable `$check` aus unserem Beispiel hat den Wert `false`. Das bedeutet das die Ausweisnummer nicht vollständig ist / zu kurz ist.
 
 **Array true**
 Ist die Ausweisnummer gültig ist die Variable `check` aus dem Beispiel ein Array das so aussieht:
