@@ -8,11 +8,10 @@ AusweisCheck ist eine Library für PHP und JavaScript um mit wenige Zeilen die E
 
 
 ##  Beispiele
-<<<<<<< HEAD
 Für alle Sprachen gibt es im Ordner *examples* Beispiele für die Nutzung. PHP ist nur auf einem eigenem Server ausführbar, Die JavaScript kann hier getestet werden:
-=======
+
 Für alle Sprachen gibt es im Ordner *examples* Beispiele für die Nutzung. PHP ist nur auf einem eigenem Server ausführbar, Die JavaScript kann hier getestet werden: 
->>>>>>> origin/master
+
 [https://cdn.rawgit.com/derDeno/AusweisCheck/1cdb9697/example/index-js.html](https://cdn.rawgit.com/derDeno/AusweisCheck/1cdb9697/example/index-js.html)
 
 Beispiel Nummern:
