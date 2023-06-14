@@ -2,113 +2,117 @@
 
 [![GitHub license](https://img.shields.io/github/license/derDeno/AusweisCheck.svg)](https://github.com/derDeno/AusweisCheck) [![GitHub issues](https://img.shields.io/github/issues/derDeno/AusweisCheck.svg)](https://github.com/derDeno/AusweisCheck/issues) [![GitHub forks](https://img.shields.io/github/forks/derDeno/AusweisCheck.svg)](https://github.com/derDeno/AusweisCheck/network) [![GitHub stars](https://img.shields.io/github/stars/derDeno/AusweisCheck.svg)](https://github.com/derDeno/AusweisCheck/stargazers)
 
-AusweisCheck ist eine Library für PHP und JavaScript um mit wenige Zeilen die Echtheit eines Ausweises zu überprüfen. Es lassen sich Deutsche Personalausweise überprüfen, oder alternativ Internationale Reisepässe inklusive der Nationalität.
+AusweisCheck is a library for PHP and JavaScript to check the authenticity of an ID card with a few lines. It can check EU identity cards, or alternatively international passports including the nationality.
 
-*ausweischeck.min.js* ist nur **2 KB groß** und braucht zur überprüfung nur **eine einzige Code Zeile**!
+*ausweischeck.min.js* is only **2 KB** and need only **one line of code**!
 
 
-##  Beispiele
-Für alle Sprachen gibt es im Ordner *examples* Beispiele für die Nutzung. PHP ist nur auf einem eigenem Server ausführbar, Die JavaScript kann hier getestet werden:
-
-Für alle Sprachen gibt es im Ordner *examples* Beispiele für die Nutzung. PHP ist nur auf einem eigenem Server ausführbar, Die JavaScript kann hier getestet werden: 
+##  Sample Code
+For all languages there are examples of usage in the *examples* folder. PHP is only executable on a dedicated server, The JavaScript can be tested here:
 
 [https://cdn.rawgit.com/derDeno/AusweisCheck/1cdb9697/example/index-js.html](https://cdn.rawgit.com/derDeno/AusweisCheck/1cdb9697/example/index-js.html)
 
-Beispiel Nummern:
+Sample IDs:
 
-**Personalausweis:** T220001293
+**EU ID:** T220001293
 
-**Reisepass:** 1220001297D
+**Passport:** 1220001297D
 
 
 
-## Nutzung
+## Usage
 
-Benötigt wird immer die Seriennummer des Ausweises mit der Prüfziffer am Ende bzw. mit dem Länderkürzel beim Reisepässen.
-Beim Perso ist diese Nummer auf der Rückseite in der ersten Zeile nach IDD zu finden. Die länge der Seriennummer inkl. Prüfziffer ist 10 Zeichen. Beim Reisepass ist sie auch ganz unten in der zweiten Zeile zu finden. Die länge der Seriennummer inkl. Prüfziffer und Länderkennung ist min. 11 Zeichen lang max. 13 Zeichen (manche Länder haben nur ein Buchstaben andere drei).
+The serial number of the ID card with the check digit at the end or with the country code for passports is always required.
+In the case of a EU ID, this number can be found on the back in the first line according to IDD. The length of the serial number including the check digit is 10 characters. In the passport, it can also be found at the bottom of the second line. The length of the serial number incl. check digit and country code is min. 11 characters max. 13 characters (some countries have only one letter others three).
 
 ### JavaScript
-Wenn die Ausweisnummer durch ein Formular oder ähnliches schon vorhanden ist:
+If the EU ID number is already available through a form or similar:
 ```javascript
-var check = new AusweisCheck(ausweisnummer).checkPerso;
+const check = new AusweisCheck(id).checkEuId;
 ```
-oder für einen Internationalen Reisepass:
+or for an International Passport:
 ```javascript
-var check = new AusweisCheck(ausweisnummer).checkReisepass;
+const check = new AusweisCheck(id).checkPassport;
 ```
 
-wobei `ausweisnummer` die zu überprüfende Ausweisnummer ist.
-Als Antwort liefern beide Funktionen 3 Möglichkeiten:
+where `id` is the badge number to be checked.
+As answer both functions return 3 possibilities:
 
 **False**
-Die Variable `check` aus unserem Beispiel hat den Wert `false`. Das bedeutet das die Ausweisnummer nicht vollständig ist / zu kurz ist.
+The variable `check` from our example has the value `false`. This means that the badge number is not complete / is too short.
 
 **Array true**
-Ist die Ausweisnummer gültig ist die Variable `check` aus dem Beispiel ein Array das so aussieht:
+If the ID number is valid, the variable `check` from the example is an array that looks like this:
 ```javascript
 array (
 "check" => true,
-"ausweisnummer" => "1234567890",
-"type" => "Personalausweis" oder "Reisepass"
-"nation" => "D" // nur bei Reisepass
+"id" => "1234567890",
+"type" => "EU ID" or "Passport"
+"nation" => "D" // only for passports
 );
 ```
-Dieses Array liefert nicht nur das Ergebnis sondern auch andere nützliche Informationen zur Weiterverarbeitung.
+This array provides not only the result but also other useful information for further processing.
 
 **Array false**
-Ist die Ausweisnummer ungültig ist die Variable `check` aus unserem Beispiel ein Array das so aussieht:
+If the ID number is invalid, the variable `check` from our example is an array that looks like this:
 ```javascript
 array (
 "check" => false,
-"error" => "Prüfsumme stimmt nicht überein"
+"error" => "checksum did not match"
 );
 ```
 
 ### PHP
-DIe PHP Version ist in großen Teilen identisch wie die Javascript Version aufgebaut.
-Wenn die Ausweisnummer schon bekannt ist:
+The PHP version is in large parts identical to the Javascript version.
+If the ID number is already known:
 ```php
-$as = new AusweisCheck();
-$check = $as->Personalausweis($ausweisnummer);
+$as = new AusweisCheck($id);
+$check = $as->checkEuId();
 ```
-oder bei einem Internationalen Reisepass
+or for an International Passport:
 ```php
-$as = new AusweisCheck();
-$check = $as->Reisepass($ausweisnummer);
+$as = new AusweisCheck($id);
+$check = $as->checkPassport();
 ```
-wobei `$ausweisnummer` die zu überprüfende Ausweisnummer ist.
-Als Antwort liefern beide Funktionen 3 Möglichkeiten:
+where `id` is the badge number to be checked.
+As answer both functions return 3 possibilities:
 
 **False**
-Die Variable `$check` aus unserem Beispiel hat den Wert `false`. Das bedeutet das die Ausweisnummer nicht vollständig ist / zu kurz ist.
+The variable `check` from our example has the value `false`. This means that the badge number is not complete / is too short.
 
 **Array true**
-Ist die Ausweisnummer gültig ist die Variable `check` aus dem Beispiel ein Array das so aussieht:
+If the ID number is valid, the variable `check` from the example is an array that looks like this:
 ```javascript
 array (
 "check" => true,
-"ausweisnummer" => "1234567890",
-"type" => "Personalausweis" oder "Reisepass"
-"nation" => "D" // nur bei Reisepass
+"id" => "1234567890",
+"type" => "EU ID" or "Passport"
+"nation" => "D" // only for passports
 );
 ```
-Dieses Array liefert nicht nur das Ergebnis sondern auch andere nützliche Informationen zur Weiterverarbeitung.
+This array provides not only the result but also other useful information for further processing.
 
 **Array false**
-Ist die Ausweisnummer ungültig ist die Variable `check` aus unserem Beispiel ein Array das so aussieht:
+If the ID number is invalid, the variable `check` from our example is an array that looks like this:
 ```javascript
 array (
 "check" => false,
-"error" => "Prüfsumme stimmt nicht überein"
+"error" => "checksum did not match"
 );
 ```
 
 
-## Sonstiges
-Bei Fragen oder Anregungen einfach ein neues Issue öffnen!
+## Other
+For questions or suggestions just open a new issue!
 
 
 ## Changelog
+**Version 0.0.2:**
+```
+Breaking Changes:
+renamed all functions, translated to english and fixed typos
+```
+
 **Version 0.0.1:**
 ```
 Inital Release

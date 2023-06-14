@@ -1,71 +1,72 @@
 <html>
-  <body>
 
-    <form method="post" id="exampleform">
-      <input id="perso-field" name="perso-field" type="text" maxlength="10" placeholder="Personalausweis">
-      <input type="submit">
-    </form>
+<body>
 
-    <form method="post" id="exampleform2">
-      <input id="reisepass-field" name="reisepass-field" type="text" maxlength="13" placeholder="Reisepass">
-      <input type="submit">
-    </form>
+  <form method="post" id="exampleform">
+    <input id="perso-field" name="perso-field" type="text" maxlength="10" placeholder="EU ID">
+    <input type="submit">
+  </form>
 
-    <b>Result:</b><br>
-    <div id="result"></div>
+  <form method="post" id="exampleform2">
+    <input id="reisepass-field" name="reisepass-field" type="text" maxlength="13" placeholder="Passport">
+    <input type="submit">
+  </form>
 
-    <script src="../js/ausweischeck.min.js" type="text/javascript"></script>
-    <script>
+  <b>Result:</b><br>
+  <div id="result"></div>
 
-    window.onload=function() {
-      // Personalausweis
-      document.getElementById('exampleform').onsubmit=function(event) {
+  <script src="../js/ausweischeck.min.js" type="text/javascript"></script>
+  <script>
+
+    window.onload = function () {
+      // EU ID
+      document.getElementById('exampleform').onsubmit = function (event) {
         event.preventDefault();
         event.stopPropagation();
 
-        var ausweisnummer = document.getElementById("perso-field").value;
-
-        var check = new AusweisCheck(ausweisnummer).checkPerso;
+        var euId = document.getElementById("perso-field").value;
+        var check = new AusweisCheck(euId).checkEuId;
 
         console.log(check);
 
-        if(check != false && check['result'] == true) {
-          var msg = "Ergebis: " + check['result'] + "<br>Typ: " + check['type'] + "<br>Nummer: " + check['ausweisnummer'];
+        if (check != false && check['result'] == true) {
+          var msg = "Result: " + check['result'] + "<br>Type: " + check['type'] + "<br>ID: " + check['id'];
           document.getElementById("result").innerHTML = msg;
 
-        }else if(check != false && check['result'] == false) {
-          var msg = "Ergebis: " + check['result'] + "<br>Error: " + check['error'];
+        } else if (check != false && check['result'] == false) {
+          var msg = "Result: " + check['result'] + "<br>Error: " + check['error'];
           document.getElementById("result").innerHTML = msg;
-        }else {
+        } else {
           document.getElementById("result").innerHTML = check;
         }
 
       };
 
-      // Reisepass
-      document.getElementById('exampleform2').onsubmit=function(event) {
+      // Passport
+      document.getElementById('exampleform2').onsubmit = function (event) {
         event.preventDefault();
         event.stopPropagation();
 
-        var ausweisnummer = document.getElementById("reisepass-field").value;
+        var passport = document.getElementById("reisepass-field").value;
+        var check = new AusweisCheck(passport).checkPassport;
 
-        var check = new AusweisCheck(ausweisnummer).checkReisepass;
+        console.log(check);
 
-        if(check != false && check['result'] == true) {
-          var msg = "Ergebis: " + check['result'] + "<br>Typ: " + check['type'] + "<br>Nummer: " + check['ausweisnummer'] + "<br>Nation: " + check['nation'];
+        if (check != false && check['result'] == true) {
+          var msg = "Result: " + check['result'] + "<br>Type: " + check['type'] + "<br>ID: " + check['id'] + "<br>Nation: " + check['nation'];
           document.getElementById("result").innerHTML = msg;
 
-        }else if(check != false && check['result'] == false) {
-          var msg = "Ergebis: " + check['result'] + "<br>Error: " + check['error'];
+        } else if (check != false && check['result'] == false) {
+          var msg = "Result: " + check['result'] + "<br>Error: " + check['error'];
           document.getElementById("result").innerHTML = msg;
-        }else {
+        } else {
           document.getElementById("result").innerHTML = check;
         }
 
       };
     };
 
-    </script>
+  </script>
+</body>
 
-  </body>
 </html>
