@@ -8,9 +8,7 @@ AusweisCheck is a library for PHP and JavaScript to check the authenticity of an
 
 
 ##  Sample Code
-For all languages there are examples of usage in the *examples* folder. PHP is only executable on a dedicated server, The JavaScript can be tested here:
-
-[https://cdn.rawgit.com/derDeno/AusweisCheck/1cdb9697/example/index-js.html](https://cdn.rawgit.com/derDeno/AusweisCheck/1cdb9697/example/index-js.html)
+For all languages there are examples of usage in the *examples* folder. PHP is only executable on a dedicated server, The JavaScript can be tested local
 
 Sample IDs:
 
